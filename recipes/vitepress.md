@@ -39,7 +39,7 @@ async function handleSubmit(event) {
   const response = await fetch(event.target.action, {
     method: 'POST',
     headers: { Accept: 'application/json' },
-    body: new URLSearchParams(new FormData(event.target)), // see the note below the code
+    body: new FormData(event.target),
   })
   const result = await response.json()
 
@@ -63,17 +63,6 @@ async function handleSubmit(event) {
   <p v-if="status === 'error'" role="alert">{{ error }}</p>
 </form>
 ```
-
-A raw `new FormData(form)` here would work as a request body, but `fetch` sets the
-request's `Content-Type` from the *type* of value you pass as `body`, not from whether the form
-actually has a file field: `FormData` always sends `multipart/form-data`, unconditionally, even
-with zero files in it. That matters specifically because BootForm rejects any
-`multipart/form-data` submission to a form that hasn't been claimed yet (`422
-FORM_NOT_CLAIMED`), regardless of whether a real file is attached. Wrapping it as `new
-URLSearchParams(new FormData(form))` keeps the convenient "read every field automatically"
-behavior while forcing `application/x-www-form-urlencoded` instead, which an unclaimed form
-accepts fine. The next section, which genuinely has a file input, needs the real `FormData` and
-genuinely does need the form claimed first.
 
 ## File upload
 
