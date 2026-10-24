@@ -37,3 +37,7 @@ link owns them instead of you.
 
 Never use a plausible-looking example ID from a tutorial as your own. A form ID is the entire
 claim credential; the first person to open its claim link owns it permanently.
+
+## Licence
+
+MIT. Copy the snippets into any project, commercial ones included.
