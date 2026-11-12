@@ -19,11 +19,11 @@ site doesn't:
 Each recipe covers the same four things, in the same order, so you can jump straight to the one
 you need:
 
-1. **Basic submission** — a plain HTML form, no JavaScript.
-2. **AJAX submission** — intercept the submit, post as JSON, show a status message without
+1. **Basic submission**: a plain HTML form, no JavaScript.
+2. **AJAX submission**: intercept the submit, post as JSON, show a status message without
    leaving the page.
-3. **File upload** — the same AJAX approach, since `FormData` picks up a file input automatically.
-4. **Moderated content feed** — load a form's approved submissions and let visitors react, using
+3. **File upload**: the same AJAX approach, since `FormData` picks up a file input automatically.
+4. **Moderated content feed**: load a form's approved submissions and let visitors react, using
    the public, unauthenticated feed endpoint.
 
 ## Before you copy a snippet
@@ -34,6 +34,11 @@ form for you (`bootform_create_form` works anonymously), or generate a UUID by h
 at `app.bootform.com/claim/{your-uuid}` the first time you use it. **Claim it before the page goes
 live**: an unclaimed form's submissions aren't lost, but the first stranger to open the same claim
 link owns them instead of you.
+
+Keep the `honeypot` field in every form. It is BootForm's spam trap: visitors never see it, bots fill
+it in, and a submission that fills it in goes to the spam folder. Keep it positioned off screen as
+shown, not hidden with `hidden` or `display:none`, and leave it empty. If you renamed the field in
+your form's spam protection settings, use that name instead.
 
 Never use a plausible-looking example ID from a tutorial as your own. A form ID is the entire
 claim credential; the first person to open its claim link owns it permanently.
