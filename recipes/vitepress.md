@@ -13,6 +13,7 @@ The plain HTML case works unchanged in the markdown body, no script needed at al
 <form action="https://f.bootform.com/{form_id}" method="POST">
   <input name="email" type="email" required>
   <textarea name="message"></textarea>
+  <input type="text" name="honeypot" style="position:absolute;left:-9999px" tabindex="-1" autocomplete="off">
   <button type="submit">Send</button>
 </form>
 ```
@@ -56,6 +57,7 @@ async function handleSubmit(event) {
 <form action="https://f.bootform.com/{form_id}" method="POST" @submit.prevent="handleSubmit">
   <input name="email" type="email" required>
   <textarea name="message"></textarea>
+  <input type="text" name="honeypot" style="position:absolute;left:-9999px" tabindex="-1" autocomplete="off">
   <button type="submit" :disabled="status === 'sending'">
     {{ status === 'sending' ? 'Sending…' : 'Send' }}
   </button>
@@ -91,6 +93,7 @@ async function handleSubmit(event) {
 <form action="https://f.bootform.com/{form_id}" method="POST" @submit.prevent="handleSubmit">
   <input name="email" type="email" required>
   <input name="resume" type="file" required>
+  <input type="text" name="honeypot" style="position:absolute;left:-9999px" tabindex="-1" autocomplete="off">
   <button type="submit" :disabled="status === 'sending'">Send</button>
 </form>
 ```

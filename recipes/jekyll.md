@@ -15,6 +15,7 @@ it means changing it in one place, not on every page that includes it:
 <form action="https://f.bootform.com/{{ site.bootform_id }}" method="POST">
   <input name="email" type="email" required>
   <textarea name="message"></textarea>
+  <input type="text" name="honeypot" style="position:absolute;left:-9999px" tabindex="-1" autocomplete="off">
   <button type="submit">Send</button>
 </form>
 ```
@@ -34,6 +35,7 @@ the same include; Jekyll ships the `<script>` tag as-is with the rest of the pag
 <form id="contact-form" action="https://f.bootform.com/{{ site.bootform_id }}" method="POST">
   <input name="email" type="email" required>
   <textarea name="message"></textarea>
+  <input type="text" name="honeypot" style="position:absolute;left:-9999px" tabindex="-1" autocomplete="off">
   <button type="submit">Send</button>
   <p class="status" hidden></p>
 </form>
@@ -79,6 +81,7 @@ beyond the script above:
 <form id="upload-form" action="https://f.bootform.com/{{ site.bootform_id }}" method="POST">
   <input name="email" type="email" required>
   <input name="resume" type="file" required>
+  <input type="text" name="honeypot" style="position:absolute;left:-9999px" tabindex="-1" autocomplete="off">
   <button type="submit">Send</button>
 </form>
 

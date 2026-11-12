@@ -11,6 +11,7 @@ The plain HTML case works unchanged in a Svelte template, no reactive state need
 <form action="https://f.bootform.com/{form_id}" method="POST">
   <input name="email" type="email" required />
   <textarea name="message"></textarea>
+  <input type="text" name="honeypot" style="position:absolute;left:-9999px" tabindex="-1" autocomplete="off" />
   <button type="submit">Send</button>
 </form>
 ```
@@ -48,6 +49,7 @@ away:
 <form action="https://f.bootform.com/{form_id}" method="POST" on:submit|preventDefault={handleSubmit}>
   <input name="email" type="email" required />
   <textarea name="message"></textarea>
+  <input type="text" name="honeypot" style="position:absolute;left:-9999px" tabindex="-1" autocomplete="off" />
   <button type="submit" disabled={status === 'sending'}>
     {status === 'sending' ? 'Sending…' : 'Send'}
   </button>
@@ -81,6 +83,7 @@ beyond the state you're already tracking above:
 <form action="https://f.bootform.com/{form_id}" method="POST" on:submit|preventDefault={handleSubmit}>
   <input name="email" type="email" required />
   <input name="resume" type="file" required />
+  <input type="text" name="honeypot" style="position:absolute;left:-9999px" tabindex="-1" autocomplete="off" />
   <button type="submit" disabled={status === 'sending'}>Send</button>
 </form>
 ```

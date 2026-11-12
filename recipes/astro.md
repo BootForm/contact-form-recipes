@@ -14,6 +14,7 @@ The plain HTML case works unchanged in an Astro component's template, no script 
 <form action="https://f.bootform.com/{form_id}" method="POST">
   <input name="email" type="email" required />
   <textarea name="message"></textarea>
+  <input type="text" name="honeypot" style="position:absolute;left:-9999px" tabindex="-1" autocomplete="off" />
   <button type="submit">Send</button>
 </form>
 ```
@@ -30,6 +31,7 @@ need `client:load` or any other hydration directive, since it isn't a UI framewo
 <form id="contact-form" action="https://f.bootform.com/{form_id}" method="POST">
   <input name="email" type="email" required />
   <textarea name="message"></textarea>
+  <input type="text" name="honeypot" style="position:absolute;left:-9999px" tabindex="-1" autocomplete="off" />
   <button type="submit">Send</button>
   <p class="status" hidden></p>
 </form>
@@ -76,6 +78,7 @@ beyond the script above:
 <form id="contact-form" action="https://f.bootform.com/{form_id}" method="POST">
   <input name="email" type="email" required />
   <input name="resume" type="file" required />
+  <input type="text" name="honeypot" style="position:absolute;left:-9999px" tabindex="-1" autocomplete="off" />
   <button type="submit">Send</button>
 </form>
 
