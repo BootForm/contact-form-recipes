@@ -10,10 +10,10 @@ supported template languages.
 Put the form in `_includes/contact-form.njk` and use it wherever it's needed with
 `{% include "contact-form.njk" %}`. Reading the form ID from Eleventy's global data
 (`_data/site.js` or `.json`) instead of hardcoding it means changing it in one place, not on
-every page that includes it:
+every page that includes it. Don't start the include with a Nunjucks comment (`{# ... #}`): a
+Markdown page is read as Liquid, which prints the comment as text on the page:
 
 ```njk
-{# _includes/contact-form.njk #}
 <form action="https://f.bootform.com/{{ site.bootformId }}" method="POST">
   <input name="email" type="email" required>
   <textarea name="message"></textarea>
@@ -34,7 +34,6 @@ Intercept the submit, post as JSON, and swap the button/status text by hand. Thi
 the same include; Eleventy ships the `<script>` tag as-is with the rest of the page's HTML:
 
 ```njk
-{# _includes/contact-form.njk #}
 <form id="contact-form" action="https://f.bootform.com/{{ site.bootformId }}" method="POST">
   <input name="email" type="email" required>
   <textarea name="message"></textarea>
@@ -76,10 +75,9 @@ the same include; Eleventy ships the `<script>` tag as-is with the rest of the p
 ## File upload
 
 `FormData` picks up a file input the same way as text fields, nothing Eleventy-specific needed
-beyond the script above:
+beyond the script above. This one is `_includes/upload-form.njk`:
 
 ```njk
-{# _includes/upload-form.njk #}
 <form id="upload-form" action="https://f.bootform.com/{{ site.bootformId }}" method="POST">
   <input name="email" type="email" required>
   <input name="resume" type="file" required>
@@ -112,10 +110,9 @@ A file upload requires the form to be claimed first (`app.bootform.com/claim/{fo
 ## Moderated content feed
 
 Load a form's approved submissions on page load, and let visitors react. The feed endpoint is
-public and unauthenticated, no API key involved:
+public and unauthenticated, no API key involved. This one is `_includes/feed.njk`:
 
 ```njk
-{# _includes/feed.njk #}
 <ul id="feed"></ul>
 
 <script>
