@@ -18,7 +18,7 @@ The plain HTML case works unchanged in a Svelte template, no reactive state need
 
 ## AJAX submission
 
-Intercept the submit, post as JSON, and track status with a reactive `let` instead of navigating
+Intercept the submit, send it with `fetch` and ask for a JSON answer, and track status with a reactive `let` instead of navigating
 away:
 
 ```svelte
@@ -53,7 +53,7 @@ away:
   <button type="submit" disabled={status === 'sending'}>
     {status === 'sending' ? 'Sending…' : 'Send'}
   </button>
-  {#if status === 'sent'}<p>Thanks - your message was sent.</p>{/if}
+  {#if status === 'sent'}<p>Thanks, your message was sent.</p>{/if}
   {#if status === 'error'}<p role="alert">{error}</p>{/if}
 </form>
 ```

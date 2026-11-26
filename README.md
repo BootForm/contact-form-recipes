@@ -20,8 +20,8 @@ Each recipe covers the same four things, in the same order, so you can jump stra
 you need:
 
 1. **Basic submission**: a plain HTML form, no JavaScript.
-2. **AJAX submission**: intercept the submit, post as JSON, show a status message without
-   leaving the page.
+2. **AJAX submission**: intercept the submit, send it with `fetch` and ask for a JSON answer, show
+   a status message without leaving the page.
 3. **File upload**: the same AJAX approach, since `FormData` picks up a file input automatically.
 4. **Moderated content feed**: load a form's approved submissions and let visitors react, using
    the public, unauthenticated feed endpoint.

@@ -25,7 +25,7 @@ like this one is never subject to that.
 
 ## AJAX submission
 
-Intercept the submit, post as JSON, and track status with `ref()` instead of navigating away:
+Intercept the submit, send it with `fetch` and ask for a JSON answer, and track status with `ref()` instead of navigating away:
 
 ```md
 <script setup>
@@ -61,7 +61,7 @@ async function handleSubmit(event) {
   <button type="submit" :disabled="status === 'sending'">
     {{ status === 'sending' ? 'Sending…' : 'Send' }}
   </button>
-  <p v-if="status === 'sent'">Thanks - your message was sent.</p>
+  <p v-if="status === 'sent'">Thanks, your message was sent.</p>
   <p v-if="status === 'error'" role="alert">{{ error }}</p>
 </form>
 ```

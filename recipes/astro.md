@@ -21,7 +21,7 @@ The plain HTML case works unchanged in an Astro component's template, no script 
 
 ## AJAX submission
 
-Intercept the submit in a plain `<script>` tag, post as JSON, and swap the button/status text by
+Intercept the submit in a plain `<script>` tag, send it with `fetch` and ask for a JSON answer, and swap the button/status text by
 hand instead of navigating away. Astro processes and bundles this script for you; it does not
 need `client:load` or any other hydration directive, since it isn't a UI framework component:
 
@@ -56,7 +56,7 @@ need `client:load` or any other hydration directive, since it isn't a UI framewo
     status.removeAttribute('hidden')
     if (result.ok) {
       form.reset()
-      status.textContent = 'Thanks - your message was sent.'
+      status.textContent = 'Thanks, your message was sent.'
     } else {
       status.setAttribute('role', 'alert')
       status.textContent = result.error

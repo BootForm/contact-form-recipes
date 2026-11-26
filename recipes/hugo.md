@@ -28,7 +28,7 @@ hardcoding it means changing it in one place, not on every page that embeds the 
 
 ## AJAX submission
 
-Intercept the submit, post as JSON, and swap the button/status text by hand. This still lives in
+Intercept the submit, send it with `fetch` and ask for a JSON answer, and swap the button/status text by hand. This still lives in
 the same partial; Hugo ships the `<script>` tag as-is with the rest of the page's HTML:
 
 ```html
@@ -61,7 +61,7 @@ the same partial; Hugo ships the `<script>` tag as-is with the rest of the page'
     status.hidden = false
     if (result.ok) {
       form.reset()
-      status.textContent = 'Thanks - your message was sent.'
+      status.textContent = 'Thanks, your message was sent.'
     } else {
       status.setAttribute('role', 'alert')
       status.textContent = result.error
