@@ -43,6 +43,12 @@ your form's spam protection settings, use that name instead.
 Never use a plausible-looking example ID from a tutorial as your own. A form ID is the entire
 claim credential; the first person to open its claim link owns it permanently.
 
+## Like it?
+
+If this saved you some time, a star on this repo helps other people find it. Everything else
+BootForm publishes is at [github.com/BootForm](https://github.com/BootForm): more templates, form
+styles and page sections, all free to copy.
+
 ## Licence
 
 MIT. Copy the snippets into any project, commercial ones included.
